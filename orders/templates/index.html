@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    <title>Orders</title>
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <p>
+        Количество заявок: {{ num_orders }}
+    </p>
+    {% endblock %}
+</body>
+</html>
