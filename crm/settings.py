@@ -26,7 +26,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'puyief3iw*c*$9(z3j_9qh)fh4^k$b
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
-DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
+#DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -160,3 +161,9 @@ DATABASES['default'].update(db_from_env)
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+SECURE_HSTS_SECONDS = 518400
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_SSL_REDIRECT = True
+CSRF_COOKIE_SECURE = True
+SECURE_HSTS_PRELOAD = True
