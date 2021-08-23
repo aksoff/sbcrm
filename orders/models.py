@@ -16,7 +16,7 @@ class Order(models.Model):
     customer = models.ForeignKey('directory.Customer', on_delete=models.CASCADE, verbose_name='Клиент')
     device_type = models.ForeignKey('devices.DeviceType', on_delete=models.SET_NULL, null=True, verbose_name='Устройство')
     device_model = models.ForeignKey('devices.DeviceModel', on_delete=models.SET_NULL, null=True, verbose_name='Модель')
-    equipment = models.CharField(max_length=255, verbose_name='В комплекте', null=True)
+    equipment = models.CharField(max_length=255, verbose_name='В комплекте', null=True, blank=True)
     defect = models.CharField(max_length=255, verbose_name='Неисправность')
     appearance = models.CharField(max_length=255, verbose_name='Внешний вид')
     inspection = models.CharField(max_length=255, verbose_name='Предварительный осмотр')
