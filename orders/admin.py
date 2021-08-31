@@ -14,6 +14,8 @@ class OrderAdmin(admin.ModelAdmin):
     search_fields = ('id', 'customer__name', 'customer__phone')
 
     def device_name(self,obj):
+        class Meta:
+            verbose_name = 'Устройство'
         return f'{obj.device_type} {obj.device_model} {obj.defect}'
 
     def date_order(self, obj):
