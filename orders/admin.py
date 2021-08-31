@@ -10,7 +10,7 @@ class OrderAdmin(admin.ModelAdmin):
               ('defect', 'inspection'), ('employee', 'comment'), 'cost']
     list_display_links = ('id', 'device_name',)
     list_filter = ('order_date', 'status', 'device_type', 'employee')
-    list_editable = ('status', 'defect')
+    list_editable = ('status', 'cost')
     search_fields = ('id', 'customer__name', 'customer__phone')
 
     def device_name(self,obj):
