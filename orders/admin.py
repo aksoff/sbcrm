@@ -26,5 +26,3 @@ class OrderAdmin(admin.ModelAdmin):
     def view_on_site(self, obj):
         url = reverse('order-detail', kwargs={'pk': obj.pk})
         return url
-
-    view_on_site.short_description = "Квитанция/Печать"
