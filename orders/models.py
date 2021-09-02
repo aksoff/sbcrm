@@ -10,7 +10,8 @@ class Order(models.Model):
         (3, 'Ремонт'),
         (4, 'Готов'),
         (5, 'Выдан'),
-        (6, 'Архив')
+        (6, 'Архив'),
+        (7, 'Отказ от ремонта')
     )
     order_date = models.DateTimeField(default=datetime.now, verbose_name='Дата/Время')
     status = models.IntegerField(choices=ORDER_STATUS, default=1, verbose_name='Статус')
