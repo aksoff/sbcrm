@@ -1,6 +1,7 @@
 from django.db import models
 from devices.models import DeviceType
 from django.urls import reverse
+from datetime import datetime
 
 class Order(models.Model):
     ORDER_STATUS = (
@@ -11,7 +12,7 @@ class Order(models.Model):
         (5, 'Выдан'),
         (6, 'Архив')
     )
-    order_date = models.DateTimeField(verbose_name='Дата/Время')
+    order_date = models.DateTimeField(default=datetime.now, verbose_name='Дата/Время')
     status = models.IntegerField(choices=ORDER_STATUS, default=1, verbose_name='Статус')
     customer = models.ForeignKey('directory.Customer', on_delete=models.CASCADE, verbose_name='Клиент')
     device_type = models.ForeignKey('devices.DeviceType', on_delete=models.SET_NULL, null=True, verbose_name='Устройство')
