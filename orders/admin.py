@@ -21,7 +21,10 @@ class OrderAdmin(admin.ModelAdmin):
     def date_order(self, obj):
         return obj.order_date.strftime("%d.%m.%Y")
 
+    date_order.short_description = "Дата"
+
     def view_on_site(self, obj):
         url = reverse('order-detail', kwargs={'pk': obj.pk})
-
         return url
+
+    view_on_site.short_description = "Квитанция/Печать"
