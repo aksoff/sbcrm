@@ -5,12 +5,12 @@ from django.urls import reverse
 #admin.site.register(Order)
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('id', 'status', 'date_order', 'device_name', 'customer', 'cost')
+    list_display = ('id', 'status', 'date_order', 'device_name', 'customer', 'cost', 'notified')
     fields = [('order_date', 'status'), 'customer', ('device_type', 'device_model'), ('appearance', 'equipment'),
               ('defect', 'inspection'), ('employee', 'comment'), 'cost']
     list_display_links = ('id', 'device_name',)
     list_filter = ('order_date', 'status', 'device_type', 'employee')
-    list_editable = ('status', 'cost')
+    list_editable = ('status', 'cost', 'notified')
     search_fields = ('id', 'customer__name', 'customer__phone')
 
     def device_name(self,obj):

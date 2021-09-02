@@ -23,6 +23,7 @@ class Order(models.Model):
     employee = models.ForeignKey('directory.Employee', on_delete=models.SET_NULL, null=True, verbose_name='Исполнитель')
     comment = models.CharField(max_length=1024, verbose_name='Заметки', default='', blank=True)
     cost = models.DecimalField(verbose_name='Стоимость', max_digits=10, decimal_places=2)
+    notified = models.BooleanField(verbose_name='Уведомлен', default=False)
 
     class Meta:
         verbose_name = 'Заявка на ремонт'
