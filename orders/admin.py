@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Order
 from django.urls import reverse
 
-# admin.site.register(Order)
+
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = ('id', 'status', 'date_order', 'device_name', 'customer', 'cost', 'notified')
