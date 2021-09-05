@@ -13,7 +13,7 @@ class OrderAdmin(admin.ModelAdmin):
     list_editable = ('status', 'cost', 'notified')
     search_fields = ('id', 'customer__name', 'customer__phone')
 
-    def device_name(self,obj):
+    def device_name(self, obj):
         return f'{obj.device_type} {obj.device_model} {obj.defect}'
 
     device_name.short_description = "Устройство/Неисправность"
@@ -25,4 +25,8 @@ class OrderAdmin(admin.ModelAdmin):
 
     def view_on_site(self, obj):
         url = reverse('order-detail', kwargs={'pk': obj.pk})
+        return url
+
+    def print_order(self, obj):
+        url = reverse('order-print', kwargs={'pk': obj.pk})
         return url
