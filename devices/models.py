@@ -10,7 +10,9 @@ class DeviceType(models.Model):
     def __str__(self):
         return f'{self.name}'
 
+
 class Brand(models.Model):
+    objects = None
     name = models.CharField(max_length=255, verbose_name='Производитель')
     type = models.ManyToManyField(DeviceType, verbose_name='Устройства', help_text='Выберите виды устройств')
 
@@ -20,6 +22,7 @@ class Brand(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+
 
 class DeviceModel(models.Model):
     name = models.CharField(max_length=255, verbose_name='Модель')
