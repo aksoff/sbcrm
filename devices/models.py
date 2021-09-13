@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class DeviceType(models.Model):
     name = models.CharField(max_length=255, verbose_name='Тип устройства')
 
@@ -14,7 +15,7 @@ class DeviceType(models.Model):
 class Brand(models.Model):
     objects = None
     name = models.CharField(max_length=255, verbose_name='Производитель')
-    type = models.ManyToManyField(DeviceType, verbose_name='Устройства', help_text='Выберите виды устройств')
+    type = models.ManyToManyField(DeviceType, verbose_name='Устройства', related_name='brands', help_text='Выберите типы устройств')
 
     class Meta:
         verbose_name = 'Производитель/Бренд'

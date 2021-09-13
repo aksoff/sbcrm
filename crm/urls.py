@@ -21,12 +21,13 @@ from django.conf.urls.static import static
 from django.conf.urls import url
 from rest_framework.routers import SimpleRouter
 
-from devices.views import BrandViewSet
+from devices.views import BrandViewSet, DeviceViewSet
 
 admin.site.site_header = 'SERVBIT.CRM'
 
 router = SimpleRouter()
 router.register('brand', BrandViewSet)
+router.register('api/device', DeviceViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
