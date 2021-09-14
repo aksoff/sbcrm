@@ -28,7 +28,7 @@ class Brand(models.Model):
 class DeviceModel(models.Model):
     name = models.CharField(max_length=255, verbose_name='Модель')
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, verbose_name='Бренд')
-    type = models.ForeignKey(DeviceType, on_delete=models.CASCADE, verbose_name='Тип устройства', null=True)
+    type = models.ForeignKey(DeviceType, on_delete=models.CASCADE, verbose_name='Тип устройства', default=1)
 
     class Meta:
         verbose_name = 'Модель устройства'

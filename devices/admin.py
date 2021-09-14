@@ -10,5 +10,6 @@ admin.site.register(Brand)
 class DeviceModelAdmin(admin.ModelAdmin):
     list_display = ('id', 'type', 'brand', 'name')
     fields = ('type', 'brand', 'name')
-    # search_fields = ("name", "brand")
+    list_editable = ('type', 'brand')
+    search_fields = ('type__name', 'name', 'brand__name')
 
