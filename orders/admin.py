@@ -12,7 +12,7 @@ class OrderAdmin(admin.ModelAdmin):
     list_filter = ('order_date', 'status', 'employee')
     list_editable = ('status', 'cost', 'notified')
     search_fields = ('id', 'customer__name', 'customer__phone')
-    autocomplete_fields = ('device_model',)
+    autocomplete_fields = ('device_model', 'customer')
 
     def device_name(self, obj):
         return f'{obj.device_model} {obj.defect}'

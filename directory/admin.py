@@ -5,4 +5,9 @@ admin.site.register(Firm)
 admin.site.register(Office)
 admin.site.register(Position)
 admin.site.register(Employee)
-admin.site.register(Customer)
+# admin.site.register(Customer)
+
+
+@admin.register(Customer)
+class CustomerAdmin(admin.ModelAdmin):
+    search_fields = ('name', 'phone')
