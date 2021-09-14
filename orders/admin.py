@@ -9,7 +9,7 @@ class OrderAdmin(admin.ModelAdmin):
     fields = [('order_date', 'status'), ('customer', 'notified'), ('device_model', 'serial'), ('appearance', 'equipment'),
               ('defect', 'inspection'), ('employee', 'comment'), 'cost']
     list_display_links = ('id', 'device_name',)
-    list_filter = ('order_date', 'status', 'employee')
+    list_filter = ('order_date', 'status', 'employee', 'device_model__type__name')
     list_editable = ('status', 'cost', 'notified')
     search_fields = ('id', 'customer__name', 'customer__phone')
     autocomplete_fields = ('device_model', 'customer')
