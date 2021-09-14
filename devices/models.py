@@ -28,10 +28,11 @@ class Brand(models.Model):
 class DeviceModel(models.Model):
     name = models.CharField(max_length=255, verbose_name='Модель')
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, verbose_name='Бренд')
+    type = models.ForeignKey(DeviceType, on_delete=models.CASCADE, verbose_name='Тип устройства', null=True)
 
     class Meta:
         verbose_name = 'Модель устройства'
         verbose_name_plural = 'Модели устройств'
 
     def __str__(self):
-        return f'{self.brand.name} {self.name}'
+        return f'{self.type.name} {self.brand.name} {self.name}'
