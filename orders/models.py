@@ -28,7 +28,7 @@ class Order(models.Model):
     zip_cost = models.DecimalField(verbose_name='Стоимость запчастей', max_digits=10, decimal_places=2, default=0)
     notified = models.BooleanField(verbose_name='Уведомлен', default=False)
     serial = models.CharField(max_length=25, verbose_name='Серийный номер', default='б/н')
-    notes = models.TextField(max_length=1048, verbose_name='Заметки', null=True)
+    notes = models.TextField(max_length=1048, verbose_name='Заметки', null=True, blank=True)
 
     class Meta:
         verbose_name = 'Заявка на ремонт'
