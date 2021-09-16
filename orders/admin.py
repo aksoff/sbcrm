@@ -7,7 +7,7 @@ from django.urls import reverse
 class OrderAdmin(admin.ModelAdmin):
     list_display = ('id', 'status', 'date_order', 'device_name', 'customer', 'cost', 'notified')
     fields = [('order_date', 'status'), ('customer', 'notified'), ('device_model', 'serial'), ('appearance', 'equipment'),
-              ('defect', 'inspection'), ('employee', 'comment'), 'cost']
+              ('defect', 'inspection'), ('employee', 'comment'), ('cost', 'zip_cost'), ('notes', )]
     list_display_links = ('id', 'device_name',)
     list_filter = ('order_date', 'status', 'employee', 'device_model__type__name')
     list_editable = ('status', 'cost', 'notified')

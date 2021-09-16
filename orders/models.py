@@ -23,10 +23,12 @@ class Order(models.Model):
     appearance = models.CharField(max_length=255, verbose_name='Внешний вид')
     inspection = models.CharField(max_length=255, verbose_name='Предварительный осмотр')
     employee = models.ForeignKey('directory.Employee', on_delete=models.SET_NULL, null=True, verbose_name='Исполнитель')
-    comment = models.CharField(max_length=1024, verbose_name='Заметки', default='', blank=True)
-    cost = models.DecimalField(verbose_name='Стоимость', max_digits=10, decimal_places=2)
+    comment = models.CharField(max_length=1024, verbose_name='Комментарий', default='', blank=True)
+    cost = models.DecimalField(verbose_name='Стоимость', max_digits=10, decimal_places=2, default=300)
+    zip_cost = models.DecimalField(verbose_name='Стоимость запчастей', max_digits=10, decimal_places=2, default=0)
     notified = models.BooleanField(verbose_name='Уведомлен', default=False)
     serial = models.CharField(max_length=25, verbose_name='Серийный номер', default='б/н')
+    notes = models.TextField(max_length=1048, verbose_name='Заметки', null=True)
 
     class Meta:
         verbose_name = 'Заявка на ремонт'
