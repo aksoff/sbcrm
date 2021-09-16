@@ -43,10 +43,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'rest_framework',
+    'ckeditor',
+    'ckeditor_uploader',
+
     'directory.apps.DirectoryConfig',
     'devices.apps.DevicesConfig',
     'orders.apps.OrdersConfig',
-    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -137,9 +140,12 @@ USE_TZ = True
 # The absolute path to the directory where collectstatic will collect static files for deployment.
 # ADMIN_MEDIA_PREFIX = '/static/admin/'
 STATIC_URL = '/static/'
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [STATIC_DIR]
 MEDIA_URL = '/media/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

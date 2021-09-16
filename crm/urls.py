@@ -31,6 +31,7 @@ router.register('api/device', DeviceViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
 urlpatterns += router.urls
