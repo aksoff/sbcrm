@@ -1,6 +1,12 @@
 from django.contrib import admin
 from .models import Order
 from django.urls import reverse
+from services.sms.smsc_api import *
+
+
+@admin.action(description='Пометить как: Выдан')
+def make_published(modeladmin, request, queryset):
+    queryset.update(status=5)
 
 
 @admin.register(Order)
@@ -13,6 +19,7 @@ class OrderAdmin(admin.ModelAdmin):
     list_editable = ('status', 'cost', 'notified')
     search_fields = ('id', 'customer__name', 'customer__phone')
     autocomplete_fields = ('device_model', 'customer')
+    actions = [make_published]
 
     def device_name(self, obj):
         return f'{obj.device_model} {obj.defect}'
