@@ -23,10 +23,6 @@ class OrderAdmin(admin.ModelAdmin):
     autocomplete_fields = ('device_model', 'customer')
     actions = [make_issued, 'send_sms_status']
 
-    @admin.action(description="action")
-    def make_published(self, request, queryset):
-        queryset.update(status='p')
-
     def device_name(self, obj):
         return f'{obj.device_model} {obj.defect}'
 
@@ -45,11 +41,22 @@ class OrderAdmin(admin.ModelAdmin):
         url = reverse('order-print', kwargs={'pk': obj.pk})
         return url
 
-    @admin.action(description='Отправить СМС')
+    @admin.action(description='Оповестить по SMS')
     def send_sms_status(self, request, queryset):
         smsc = SMSC()
-        r = smsc.send_sms("+79276252962", "test message4 FROM django")
-        queryset.update(notified=True)
-        self.message_user(request, "SMS was send succesful!!")
+        for order in queryset:
+            status = order.get_status_display()
+            result = smsc.send_sms(order.customer.phone, f"Ваш заказ: {order.device_model} в статусе: {status}")
+
+            if result[1] > "0":
+                order.notified = True
+                order.save()
+                message = f"Заказ №{order.id}. Сообщение успешно отправлено ID: " + result[0] + " Баланс: " + result[3]
+            else:
+                error = smsc.get_error_message(int(result[1][1:]))
+                message = f"Заказ №{order.id}. Ошибка №" + result[1][1:] + " " + error + ifs(result[0] > "0", ", ID: "
+                                                                                             + result[0], "")
+
+            self.message_user(request, message)
 
 

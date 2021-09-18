@@ -8,8 +8,8 @@ from datetime import datetime
 class Order(models.Model):
     ORDER_STATUS = (
         (1, 'Диагностика'),
-        (2, 'Согласование'),
-        (3, 'Ремонт'),
+        (2, 'На согласовании'),
+        (3, 'В ремонте'),
         (4, 'Готов'),
         (5, 'Выдан'),
         (6, 'Архив'),
@@ -18,7 +18,6 @@ class Order(models.Model):
     order_date = models.DateTimeField(default=datetime.now, verbose_name='Дата/Время')
     status = models.IntegerField(choices=ORDER_STATUS, default=1, verbose_name='Статус')
     customer = models.ForeignKey('directory.Customer', on_delete=models.CASCADE, verbose_name='Клиент')
-    # device_type = models.ForeignKey('devices.DeviceType', on_delete=models.SET_NULL, null=True, verbose_name='Устройство')
     device_model = models.ForeignKey('devices.DeviceModel', on_delete=models.SET_NULL, null=True, verbose_name='Устройство/Модель')
     equipment = models.CharField(max_length=255, verbose_name='В комплекте', null=True, blank=True)
     defect = models.CharField(max_length=255, verbose_name='Неисправность')
