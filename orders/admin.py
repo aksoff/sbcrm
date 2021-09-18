@@ -22,7 +22,6 @@ class OrderAdmin(admin.ModelAdmin):
     search_fields = ('id', 'customer__name', 'customer__phone')
     autocomplete_fields = ('device_model', 'customer')
     actions = [make_issued, 'send_sms_status']
-    add_form_template =
 
     def device_name(self, obj):
         return f'{obj.device_model} {obj.defect}'
