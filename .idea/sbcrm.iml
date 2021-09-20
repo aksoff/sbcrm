@@ -15,6 +15,16 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/env" />
+      <excludeFolder url="file://$MODULE_DIR$/static/ckeditor/ckeditor/skins/moono" />
+      <excludeFolder url="file://$MODULE_DIR$/static/ckeditor/ckeditor/skins/moono-lisa" />
+      <excludeFolder url="file://$MODULE_DIR$/static/ckeditor/ckeditor/adapters" />
+      <excludeFolder url="file://$MODULE_DIR$/static/ckeditor/ckeditor/lang" />
+      <excludeFolder url="file://$MODULE_DIR$/static/ckeditor/ckeditor/plugins" />
+      <excludeFolder url="file://$MODULE_DIR$/static/ckeditor/ckeditor/vendor" />
+      <excludeFolder url="file://$MODULE_DIR$/static/ckeditor/ckeditor_uploader" />
+      <excludeFolder url="file://$MODULE_DIR$/static/ckeditor/file-icons" />
+      <excludeFolder url="file://$MODULE_DIR$/static/ckeditor/galleriffic" />
+      <excludeFolder url="file://$MODULE_DIR$/static/rest_framework" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.9 (sbcrm)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
