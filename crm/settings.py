@@ -173,6 +173,7 @@ CSRF_COOKIE_SECURE = True
 SECURE_HSTS_PRELOAD = True
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
+LIST_PER_PAGE = 50
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
