@@ -9,8 +9,6 @@ def make_issued(modeladmin, request, queryset):
     queryset.update(status=5)
 
 
-
-
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = ('id', 'status', 'date_order', 'device_name', 'customer', 'cost', 'notified')

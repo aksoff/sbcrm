@@ -7,17 +7,26 @@
 <body>
     {% block content %}
     <header>
-        <div class="title">
-            {{ firm.name }}
-            <br/>
-            <span>Ремонт компьютерной техники</span>
+        <div class="no-print">
+            <input class="close-btn" type="button" onclick="history.back();" value="Назад"/>
         </div>
-        <div class="info">
-            <ul>
-                <li>{{ firm.address }}</li>
-                <li>гор. {{ firm.phone }}, моб. +79648462000</li>
-            </ul>
+        <div class="head">
+            <div class="title">
+                <strong>{{ firm.name }}</strong>
+                <br/>
+                <span>Ремонт компьютерной техники</span>
+                <br/>
+                <span>ИНН 6422000296</span>
+            </div>
+            <div class="info">
+                <ul>
+                    <li>{{ firm.address }}</li>
+                    <li>гор. {{ firm.phone }}, моб. +79648462000</li>
+                    <li>Telegram канал: t.me/servbit</li>
+                </ul>
+            </div>
         </div>
+
         <p>
             <strong>КВИТАНЦИЯ СБ № {{ order.id }} от {{ order.order_date|date:'d.m.Y'}} г.</strong>
         </p>
@@ -73,16 +82,21 @@
     </div>
     <div class="copy">
         <div class="header">
-        <div class="title">
-            {{ firm.name }}
-            <br/>
-            <span>Ремонт компьютерной техники</span>
-        </div>
-        <div class="info">
-            <ul>
-                <li>{{ firm.address }}</li>
-                <li>{{ firm.phone }}</li>
-            </ul>
+        <div class="head">
+            <div class="title">
+                <strong>{{ firm.name }}</strong>
+                <br/>
+                <span>Ремонт компьютерной техники</span>
+                <br/>
+                <span>ИНН 6422000296</span>
+            </div>
+            <div class="info">
+                <ul>
+                    <li>{{ firm.address }}</li>
+                    <li>гор. {{ firm.phone }}, моб. +79648462000</li>
+                    <li>Telegram канал: t.me/servbit</li>
+                </ul>
+            </div>
         </div>
         <p>
             <strong>КВИТАНЦИЯ СБ № {{ order.id }} от {{ order.order_date|date:'d.m.Y'}} г.</strong>
@@ -129,21 +143,28 @@
 
 <style>
     body {
+        font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+
         max-width: 20cm;
         font-size: 14px;
         padding: 20px;
         margin: 0px;
     }
-
+    .head {
+        display: flex;
+        flex-direction: row;
+    }
     .title {
         float: left;
         width: 350px;
     }
     .info ul {
+        margin: 0;
         list-style: none;
     }
     table {
         width: 100%;
+        font-size: 12px;
         border: 1px solid #444;
         border-collapse: collapse;
     }
@@ -156,11 +177,25 @@
     }
 
     .copy {
-        margin-top: 50px;
+        margin-top: 25px;
+        padding-top: 25px;
         border-top: 1px dashed #ccc;
     }
     .sign {
+        font-size: 12px;
         margin-top: 40px;
+    }
+    .close-btn {
+        margin: 0 15px 15px 0;
+        padding: 10px 25px;
+        cursor: pointer;
+    }
+    @media print
+    {
+            .no-print, .no-print *
+            {
+                display: none !important;
+            }
     }
 </style>
 </html>
