@@ -8,7 +8,9 @@
     {% block content %}
     <header>
         <div class="no-print">
-            <input class="close-btn" type="button" onclick="history.back();" value="Назад"/>
+            <input class="default-btn" type="button" onclick="history.back();" value="Назад"/>
+            <input class="default-btn" type="button" onclick="window.location.replace('/admin/orders/order');" value="Заявки"/>
+            <input class="default-btn" type="button" onclick="window.print();" value="Печать"/>
         </div>
         <div class="head">
             <div class="title">
@@ -185,10 +187,18 @@
         font-size: 12px;
         margin-top: 40px;
     }
-    .close-btn {
+    .default-btn {
+        background: #44B78B;
+        color: white;
         margin: 0 15px 15px 0;
-        padding: 10px 25px;
+        padding: 10px 20px;
         cursor: pointer;
+        border: none;
+        border-radius: 3px;
+    }
+    .default-btn:hover {
+        background: #3da47d;
+        transition: all 0.3s;
     }
     @media print
     {
