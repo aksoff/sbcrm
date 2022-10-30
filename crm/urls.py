@@ -22,12 +22,14 @@ from django.conf.urls import url
 from rest_framework.routers import SimpleRouter
 
 from devices.views import BrandViewSet, DeviceViewSet
+from orders.views import OrderViewSet
 
 admin.site.site_header = 'SERVBIT.CRM'
 
 router = SimpleRouter()
-router.register('brand', BrandViewSet)
-router.register('api/device', DeviceViewSet)
+router.register('api/v1/brands', BrandViewSet)
+router.register('api/v1/devices', DeviceViewSet)
+router.register('api/v1/orders', OrderViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -39,7 +41,6 @@ urlpatterns += router.urls
 
 urlpatterns += [
     path('directory/', include('directory.urls')),
-    path('orders/', include('orders.urls')),
     path('devices/', include('devices.urls')),
     path('api-auth/', include('rest_framework.urls'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

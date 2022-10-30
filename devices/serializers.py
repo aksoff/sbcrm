@@ -5,7 +5,7 @@ from .models import DeviceModel
 from .models import Brand, DeviceType
 
 
-class DeviceModelSerializer(serializers.HyperlinkedModelSerializer):
+class DeviceModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = DeviceModel
         fields = 'name'
