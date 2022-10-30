@@ -2,6 +2,8 @@ from django.shortcuts import render
 from .models import Order
 from django.views import generic
 from directory.models import Firm
+from rest_framework import viewsets
+from .serializers import OrderSerializer
 
 def index(request):
     num_orders = Order.objects.all().count()
@@ -19,6 +21,7 @@ class OrderListView(generic.ListView):
         context['some_data'] = firm
         return context
 
+
 class OrderDetailView(generic.DetailView):
     model = Order
 
@@ -31,3 +34,8 @@ class OrderDetailView(generic.DetailView):
         # Добавляем новую переменную к контексту и инициализируем её некоторым значением
         context['firm'] = firm
         return context
+
+
+class OrderViewSet(viewsets.ModelViewSet):
+    queryset = Order.objects.all().order_by('id')
+    serializer_class = OrderSerializer

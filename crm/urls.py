@@ -32,6 +32,7 @@ router.register('api/device', DeviceViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('', include('orders.urls')),
 ]
 
 urlpatterns += router.urls
@@ -39,6 +40,7 @@ urlpatterns += router.urls
 urlpatterns += [
     path('directory/', include('directory.urls')),
     path('orders/', include('orders.urls')),
+    path('devices/', include('devices.urls')),
     path('api-auth/', include('rest_framework.urls'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
