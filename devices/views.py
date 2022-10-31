@@ -13,6 +13,6 @@ class BrandViewSet(ModelViewSet):
     filter_fields = ['name']
 
 
-class DeviceViewSet(viewsets.ViewSet):
+class DeviceViewSet(ModelViewSet):
     queryset = DeviceType.objects.all()
     serializer_class = DeviceSerializer
