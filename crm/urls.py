@@ -29,7 +29,7 @@ admin.site.site_header = 'SERVBIT.CRM'
 router = SimpleRouter()
 router.register('api/v1/brands', BrandViewSet)
 router.register('api/v1/devices', DeviceViewSet)
-router.register('api/v1/orders', OrderViewSet)
+#router.register('api/v1/orders', OrderViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

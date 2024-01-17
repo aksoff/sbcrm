@@ -11,6 +11,66 @@
             <input class="default-btn" type="button" onclick="history.back();" value="Назад"/>
             <input class="default-btn" type="button" onclick="window.location.replace('/admin/orders/order');" value="Заявки"/>
             <input class="default-btn" type="button" onclick="window.print();" value="Печать"/>
+            <iframe seamless frameborder="0" scrolling="no"
+      srcdoc="<!DOCTYPE html><html><body>
+      <div class='no-print'>
+      <input class='default-btn' type='button' onclick='window.print();' value='Наклейка'/>
+      </div>
+      <div class='label'>
+          <div class='label-number'><strong>{{ order.id }}</strong></div>
+          <div class='label-phone'><strong>{{ order.customer.phone }}</strong></div>
+          <div class='label-date'>{{ order.order_date|date:'d.m.Y'}}</div>
+      </div>
+      </body>
+      <style>
+        .label {
+            font-family: 'Roboto', 'Lucida Grande', 'DejaVu Sans', 'Bitstream Vera Sans', Verdana, Arial, sans-serif;
+            margin-left: 10px;
+        }
+        .label-number {
+            box-sizing: border-box;
+            width: 100%;
+            text-align: center;
+            font-size: 32px;
+            border: 2px solid #000;
+        }
+        .label-phone {
+            text-align: center;
+            font-size: 12px;
+        }
+        .label-date {
+            text-align: center;
+            font-size: 8px;
+        }
+        .default-btn {
+            background: #44B78B;
+            color: white;
+            margin: 0 15px 15px 0;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 3px;
+        }
+        .default-btn:hover {
+            background: #3da47d;
+            transition: all 0.3s;
+        }
+        @media print
+            {
+                .no-print, .no-print *
+                {
+                    display: none !important;
+                }
+            }
+      </style>
+      </html>"
+      width="160"
+      height="50"
+      align="right"
+    >
+      Ваш браузер не поддерживает встроенные фреймы!
+    </iframe>
+
         </div>
         <div class="head">
             <div class="title">
